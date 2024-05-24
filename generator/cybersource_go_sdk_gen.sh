@@ -1,0 +1,12 @@
+#! /bin/bash
+
+cd "$(dirname "$0")"
+
+echo Delete the previously generated SDK code
+
+rm -rf ../client
+rm -rf ../models
+
+echo Command to generate SDK
+
+swagger generate client -A Cybersource -f cybersource-rest-spec-fixed.json -t ../
