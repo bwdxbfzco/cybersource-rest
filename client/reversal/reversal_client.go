@@ -115,12 +115,19 @@ Include the payment ID in the POST request to reverse the payment amount.
 func (a *Client) AuthReversal(params *AuthReversalParams, opts ...ClientOption) (*AuthReversalCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
+		return nil, fmt.Errorf("params cannot be nil")
+	}
+	if params.ID == "" {
+		return nil, fmt.Errorf("id parameter is required")
+	}
+
+	if params == nil {
 		params = NewAuthReversalParams()
 	}
 	op := &runtime.ClientOperation{
 		ID:                 "authReversal",
 		Method:             "POST",
-		PathPattern:        "/pts/v2/payments/{id}/reversals",
+		PathPattern:        fmt.Sprintf("/pts/v2/payments/%s/reversals", params.ID),
 		ProducesMediaTypes: []string{"application/hal+json;charset=utf-8"},
 		ConsumesMediaTypes: []string{"application/json;charset=utf-8"},
 		Schemes:            []string{"https"},

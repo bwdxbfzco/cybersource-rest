@@ -122,6 +122,7 @@ func (a *Client) CapturePayment(params *CapturePaymentParams, opts ...ClientOpti
 	if params == nil {
 		params = NewCapturePaymentParams()
 	}
+
 	op := &runtime.ClientOperation{
 		ID:                 "capturePayment",
 		Method:             "POST",
