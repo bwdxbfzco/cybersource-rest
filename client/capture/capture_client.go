@@ -113,12 +113,19 @@ Include the payment ID in the POST request to capture the payment amount.
 func (a *Client) CapturePayment(params *CapturePaymentParams, opts ...ClientOption) (*CapturePaymentCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
+		return nil, fmt.Errorf("params cannot be nil")
+	}
+	if params.ID == "" {
+		return nil, fmt.Errorf("id parameter is required")
+	}
+
+	if params == nil {
 		params = NewCapturePaymentParams()
 	}
 	op := &runtime.ClientOperation{
 		ID:                 "capturePayment",
 		Method:             "POST",
-		PathPattern:        "/pts/v2/payments/{id}/captures",
+		PathPattern:        fmt.Sprintf("/pts/v2/payments/%s/captures", params.ID),
 		ProducesMediaTypes: []string{"application/hal+json;charset=utf-8"},
 		ConsumesMediaTypes: []string{"application/json;charset=utf-8"},
 		Schemes:            []string{"https"},
