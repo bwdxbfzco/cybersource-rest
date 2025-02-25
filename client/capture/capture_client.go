@@ -138,6 +138,9 @@ func (a *Client) CapturePayment(params *CapturePaymentParams, opts ...ClientOpti
 		opt(op)
 	}
 
+	fmt.Printf("CapturePaymentParams: %+v\n", params)
+	fmt.Printf("CapturePaymentParams: %+v\n", op)
+
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
