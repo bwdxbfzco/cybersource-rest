@@ -1758,7 +1758,7 @@ type GetTransactionOKBodyApplicationInformationApplicationsItems0 struct {
 	ReconciliationID string `json:"reconciliationId,omitempty"`
 
 	// The description for this field is not available.
-	ReturnCode int64 `json:"returnCode,omitempty"`
+	ReturnCode string `json:"returnCode,omitempty"`
 
 	// The description for this field is not available.
 	Status string `json:"status,omitempty"`

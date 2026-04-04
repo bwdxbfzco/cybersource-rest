@@ -1847,7 +1847,7 @@ type CreateSearchCreatedBodyEmbeddedTransactionSummariesItems0ApplicationInforma
 	ReasonCode string `json:"reasonCode,omitempty"`
 
 	// The description for this field is not available.
-	ReturnCode int64 `json:"returnCode,omitempty"`
+	ReturnCode string `json:"returnCode,omitempty"`
 }
 
 // Validate validates this create search created body embedded transaction summaries items0 application information
@@ -1987,7 +1987,7 @@ type CreateSearchCreatedBodyEmbeddedTransactionSummariesItems0ApplicationInforma
 	ReconciliationID string `json:"reconciliationId,omitempty"`
 
 	// The description for this field is not available.
-	ReturnCode int64 `json:"returnCode,omitempty"`
+	ReturnCode string `json:"returnCode,omitempty"`
 
 	// The status of the submitted transaction.
 	// Note: This field may not be returned for all transactions.
